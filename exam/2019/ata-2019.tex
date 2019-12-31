@@ -1,0 +1,478 @@
+%% This is a sample for an exam with 1 compulsory question.
+%% Needs v1.9 of exams.cls to support examcomp1 environment
+%%
+%
+\documentclass{exams}
+%
+% If you want \Bbb or \frak
+\usepackage{amsfonts, amsmath}
+%
+% Use other packages as needed.
+% Packages compatible with article class ought to work OK.
+
+
+%%
+%% Process your file twice so that the format can
+%% get the CONTINUED and END on the correct pages.
+%%
+
+
+%%
+%% This data generates the first page header and
+%% the running head
+%%
+\examcode{MA 3J8}
+\examyear{3} % 1-4 for UG, 5=MSc
+\examdate{June 2019}
+\examtitle{Approximation Theory and Applications} % In CAPS
+               %
+\examlength{4} % This is the number of questions for full marks.
+               % For UG papers the actual number is normally
+               % one more than this.
+               %
+\examtime{3}   % This is the length of exam in hours. It is optional.
+               % If not supplied a length of \examlength x .5 hours
+               % will be assumed.
+               %
+%
+\marks         % Uncomment this if you put marks in margin.
+               % A warning will be issued if you use \mark and you don't.
+               %
+%\resit         % Uncomment this for a resit exam.
+%\calculators   % Uncomment this if calculators are allowed.
+
+
+%%
+%% You can number parts of a question using
+%% the enumerate environment. Adjust its appearance
+%% as follows if you prefer roman numerals for the
+%% parts. The default is lower case letters a), b),...
+%%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+%% If you need more than one level of enumerates
+%% then define the format for those, too.
+\renewcommand{\theenumii}{\roman{enumii}}
+%%
+
+
+
+%%
+%% Define your own macros, e.g.
+%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\g}{\mathfrak{g}}
+
+\begin{document}
+
+%% Marks can be displayed for parts of a question using the \mark{}
+%% macro at the end of a line where the marks should appear. Add
+%% \marks to the preamble to put a comment on this in the rubric.
+%% A warning will be issued if you use \mark{} without adding
+%% \marks to the preamble.
+
+\def\TT{\mathbb{T}}
+
+\begin{examcomp1}
+
+\clearpage
+
+\begin{question}
+  \begin{enumerate}
+
+  \item  (i) Define the space of trigonometric polynomials of degree $N$. State
+  the orthogonality property that the canonical basis satisfies.  \mark{3} 
+
+  (ii) For $f \in C(\TT)$, (continuous, $2\pi$-periodic), define the
+  Fourier coefficients $\hat{f}_k$, the Fourier series, as well as the
+  $N$-partial sum $\Pi_N f$.  \mark{3}
+  
+  (iii) Use the orthogonality property from (i) to prove that  \mark{3}
+  \[
+      \| f \|_{L^2(\TT)}^2 = \sum_{k \in \Z} |\hat{f}_k|^2  
+  \]
+  
+  (iv) Prove that $\Pi_N f$ is the best approximation to 
+  $f$ in the $L^2(\TT)$-norm.  \mark{3}
+
+  \item  Derive an
+  error estimate for $\| \Pi_N f - f \|_{L^2(\TT)}$, where  \\ 
+  (i) $|\hat{f}_k| \leq C |k|^{-p}, p \geq 1$; \mark{2} \\  
+  (ii) $|\hat{f}_k| \leq C e^{-\alpha |k|}$. \mark{2}  
+
+  (iii) In each of the two cases (i, ii) state a regularity assumption on 
+  $f$ that gives rise to this decay in the Fourier coefficients. \mark{2}
+
+  (iv) For the following functions state without proof estimates on the rate of
+  convergence for $\| \Pi_N f - f \|_{L^2(\TT)}$ based on (i, ii, iii):  \mark{8}
+  \begin{align*}
+    f_1(x) &= |\sin(5x)|^5
+    & 
+    f_2(x) &= (1 + \cos^2(x))^{-1}
+    \\ 
+    f_3(x) &= \sin(\cos(x))
+    &
+    f_4(x) &= x \sin^2(x)
+  \end{align*}
+  {\it All functions are defined for $x \in (-\pi, \pi]$ and 
+  extended $2\pi$-periodically.}
+
+  \item Let $\mathcal{P}_N$ denote the space of algebraic polynomials of degree
+  up to $N$ and let $E(\rho), \rho > 1$ denote a Bernstein ellipse. If $f$ is
+  analytic in $E(\rho)$ and $M = \|f\|_{L^\infty(E(\rho))}$ then  
+  \begin{equation} \label{eq:approxcheb}
+    \inf_{p \in \mathcal{P}_N} \|f - p\|_\infty \leq \frac{2 M \rho^{-N}}{\rho-1}.
+  \end{equation}
+  
+  (i) Define the set $E(\rho)$. \mark{2}
+
+  (ii) Using \eqref{eq:approxcheb}, establish an explicit super-exponential 
+  convergence rate for $f(x) = e^x$, specifying all constants. {\it A 
+  sharp estimate is not required.} \mark{6}
+
+  \item (i) Given interpolation nodes $x_0 < \dots < x_N \in [-1,1]$, define the
+  associated nodal interpolation operator $I_N$ for polynomials. {\it You need 
+  not show that it is well-defined.}  \mark{2}
+
+  (ii) Prove an interpolation error estimate of the form  \mark{4}
+  \[
+    \|f - I_N f \|_{L^\infty(-1,1)} \leq C_N 
+     \inf_{p \in \mathcal{P}_N} \|f - p\|_{L^\infty(-1,1)},
+  \]
+  where $C_N$ should be precisely defined but need not 
+  be calculated or estimated. Properties of $I_N$ that you 
+  use should be stated, but need not be proven.
+  \end{enumerate}
+\end{question}
+
+\clearpage
+
+\begin{question}
+  \begin{enumerate}
+
+  \item (i) Let $f \in C(\TT)$ (continuous and $2\pi$-periodic). 
+  Define what it means for $f$ to have a modulus of continuity $\omega$. 
+  \mark{1} 
+
+  (ii) State Jackson's first theorem for the approximation of $f$ in the
+  max-norm by trigonometric polynomials. \mark{2} 
+
+  \item Let $f \in C([-1,1])$ with modulus of continuity $\omega$.
+  
+  (i) Use a suitable coordinate transformation to derive the Chebyshev nodes 
+  and Chebyshev polynomial basis from equispaced nodes and the canonical trigonometric 
+  polynomial basis. {\it (You need not prove that the transformed 
+  functions are in fact algebraic polynomials.)}  \mark{3}
+  
+  (ii) Derive an estimate for the approximation of $f$ in the max-norm by
+  algebraic polynomials from the result in (a)(ii).  \mark{5}
+
+  (iii) If $f \in C^1([-1,1])$, give a sharp bound for its modulus of continuity
+  $\omega$. \mark{1}
+
+  \item (i) Let $E_N(f)$ denote the best approximation error of $f \in C([-1,1])$ by
+  algebraic polynomials of degree $N$. Prove that, if $f \in C^1([-1,1])$, then
+  there exists a generic constant $C$ such that  \mark{3}
+  \[
+      E_N(f) \leq C N^{-1} E_{N-1}(f').
+  \]
+  {\it HINT: use (b)(ii) and (b)(iii) and the fact that 
+    $E_N(f) = E_N(f+q)$ for all $q \in \mathcal{P}_N$. }
+
+  (ii) Let $f \in C^j([-1,1]), j \geq 1$ where $f^{(j)}$ has modulus of
+  continuity $\omega$. Prove a sharp max-norm approximation error estimate of
+  the form
+  \mark{5}
+  \[
+      \inf_{p \in \mathcal{P}_N} 
+      \big( \|f - p \|_\infty + \| f' - p' \|_\infty\big) \leq 
+      C \epsilon(N),
+  \]
+  where $\epsilon(N)$ is a rate that you should specify.
+
+  % (iii) Now suppose that $f$ is analytic in the Bernstein ellipse $E(\rho)$. 
+  % Establish an analogous max-norm approximation error estimate.  \mark{4}
+  \end{enumerate}
+\end{question}
+
+\clearpage
+
+
+\begin{question}
+  \begin{enumerate}
+
+  \item For $f \in C^{N+1}([a, b])$, $N > 0$ prove that there exists  \mark{4}
+  a constant $C_N$ and a polynomial $p_N \in \mathcal{P}_N$ such that 
+  \begin{align*}
+    \| f - p_N \|_{L^\infty(a,b)} 
+    &\leq C_N (b-a)^{N+1} \| f^{(N+1)} \|_{L^\infty(a,b)}, 
+    \qquad \text{and} \\ 
+    \| f' - p_N' \|_{L^\infty(a,b)}
+    &\leq C_N (b-a)^{N} \| f^{(N+1)} \|_{L^\infty(a,b)}. \\ 
+  \end{align*}
+  \vspace{-12mm}
+
+  {\it You may use, without proof that, for $g \in C^{(N+1)}([0,1])$,  
+  there exists $q_N \in \mathcal{P}_N$ such that }
+  \[
+      \| g - q_N \|_{L^\infty(0,1)} 
+      + \| g' - q_N' \|_{L^\infty(0,1)}
+      \leq C_N \| f^{(N+1)} \|_{L^\infty(0,1)}.
+  \]  
+
+  \item (i) Define the spaces $\mathcal{S}_N((y_m)_{m=0}^M)$ of splines of
+    degree $N$ and  $\mathcal{S}_N^p((y_m)_{m=0}^M)$ of splines of degree $N$,
+    regularity $C^p$ and nodes $y_m$. \mark{2}
+
+    (ii) For $y_m = h m$ where $h = 1/M$ prove that  \mark{3}
+    \begin{equation} \label{eq:splineapproxerr}
+        \inf_{s \in \mathcal{S}_N} \|f - s \|_{L^\infty(0,1)}
+        \leq 
+        C_N h^{N+1} \| f^{(N+1)} \|_{L^\infty(0,1)}
+    \end{equation}
+
+    (iii) Let $f_1(x) = \cos(x)$ and $f_2(x) = |\cos(2x)|^3$. 
+    For each of $f_1, f_2$ and for each $M \in \N$ and $N \in \N$ give a
+    sharp upper bound for the approximation error \eqref{eq:splineapproxerr}.
+    {\it You need not give a rigorous proof.}
+    \mark{3}
+
+  \item (i) Still consider $y_m = h m$, $h = 1/M$. Given $f \in C^1([0,1])$
+  prove that there exists a unique spline $s := I_h f \in \mathcal{S}_3^1$
+  satisfying  \mark{4}
+  \[
+      s(y_m) = f(y_m) \quad \text{and} 
+      \quad 
+      s'(y_m) = f'(y_m) \qquad \text{for } m = 0, \dots, M.
+  \]
+  {\it HINT: For $x \in [y_{m-1}, y_m]$, write 
+  $s(x) = f_{m-1} + f_{m-1}' (x-y_{m-1}) + a_m (x-y_{m-1})^2 
+    + b_m (x - y_{m-1})^3$, then show that you can uniquely 
+    determine $a_m, b_m$.}
+
+  (ii) Prove that there exists a constant $C_H$ such that, 
+  for $f \in C^3([0,1])$,   \mark{4}
+  \[
+      \| f - I_h f \|_{L^\infty(0,1)} \leq C_H h^4 \|f^{(4)}\|_{L^\infty(0,1)}
+  \]  
+  {\it You may use the following identity without proof:
+    \[
+      \begin{pmatrix} 
+        h^2 & h^3 \\ 
+        2h & 3h^2 
+      \end{pmatrix}^{-1}
+      = 
+      h^{-4} 
+      \begin{pmatrix}
+        3 h^2 & - h^3 \\ 
+        -2h & h^2 
+      \end{pmatrix}
+    \] 
+  }
+
+  \end{enumerate}
+\end{question}
+
+\clearpage
+
+\begin{question}
+  \begin{enumerate}
+
+  \item (i) Consider the uniform grid $x_n := n \pi / N$. Prove the identity  \mark{2}
+  \begin{equation}\label{eq:aliasing}
+      \frac{1}{2N} \sum_{n = 0}^{2N-1} e^{i k x_n} = 
+      \begin{cases}
+          1, & k \in 2N \Z, \\ 
+          0, & \text{otherwise}.
+      \end{cases}
+  \end{equation}
+  
+  (ii) For $f \in C(\TT)$ define the trigonometric interpolant $I_N f \in
+  \mathcal{T}_N'$ on the nodes $x_n$. Define also the modified space of
+  trigonometric polynomials $\mathcal{T}_N'$ with only $2N$ degrees of freedom.
+  Motivate this modification by referring to \eqref{eq:aliasing}.
+  \mark{4}
+
+  {\it (You may assume throughout the remainder of the question that $I_N f$ is
+  well-defined.)}
+
+  (iii) Let $F = (F_n)_{n = 0}^{2N-1}$, where $F_n = f(x_n)$, and define the
+  Discrete Fourier transform  $\hat{F} \in \R^{2N}$. Briefly explain how this can be
+  used to evaluate the trigonometric interpolant $I_N f$.  \mark{4}
+  
+  \item Now consider a finer equi-spaced grid $y_m = m \pi / M$, $m = 0, \dots,
+  2M-1$ where $M > N$ is an integer multiple of $N$.
+
+  (i) Formulate the least squares problem to fit a trigonometric polynomial $t
+  \in \mathcal{T}_N'$ to data $(y_m, f(y_m))$ with weights $w_m = 1$, in the
+  form $\min \|A c - Y \|_2^2$ where $c$ are the coefficients of $t$.
+  \mark{3}
+
+  (ii) Derive the normal equations and explicitly
+  compute the $2N \times 2N$ system matrix that needs to be inverted to solve
+  them. 
+  \mark{3}
+
+  (iii) Deduce an $O(M \log M)$-scaling algorithm to solve the least squares
+  problem from (i). \mark{4}
+  \end{enumerate}
+\end{question}
+
+\clearpage
+
+\begin{question}
+  \begin{enumerate}
+
+  \item Consider a multi-variate polynomial in a tensor 
+  product Chebyshev basis, 
+  \[
+      p({\bf x}) = \sum_{{\bf k} \in \{0,\dots,N\}^d} c_{\bf k} T_{\bf k}({\bf x}), 
+      \qquad \text{where } {\bf x} \in \R^d.
+  \]
+  (i) Define what we mean by $T_{\bf k}({\bf x})$, where 
+  ${\bf k} \in \mathbb{N}^d, {\bf x} \in \R^d$.  \mark{1}
+  
+  (ii) Estimate the computational cost of evaluating $p({\bf x})$ at a single
+  point ${\bf x}  \in \R^d$.
+  \mark{3}
+
+  (iii) Suppose that for all $i = 1, \dots, d$, $x_i \mapsto f({\bf x})$ is analytic in $E(\rho)$ (with $x_j, j \neq i$
+  remaining fixed) where $E(\rho)$ is the usual Bernstein ellipse. Prove the following tensor product polynomial
+  approximation in the max-norm, defining what we mean by $\tilde{\Pi}_N^{(i)}$,
+  \mark{5}
+   \[ 
+      \|f - \tilde\Pi_N^{(d)} \cdots \tilde\Pi_N^{(1)} f \|_\infty 
+      \leq C (\log N)^d \rho^{-N}.
+   \]
+  {\it You may use \eqref{eq:approxcheb} without proof, as well as 
+  the bound $\| \tilde\Pi_N g \|_\infty 
+  \leq C \log N \|g\|_\infty$ for $g \in C([-1,1])$.}
+  
+  (iv)  Convert the result from (iii) into an estimate in terms of the cost
+  of storing and evaluating the multivariate polynomial, and thus explain the
+  term ``curse of dimensionality''. \mark{3}
+  
+  \item Consider a function $f \in C([-1,1]^d) \to \R$ with its multivariate 
+  Chebyshev expansion coefficients satisfying 
+  \[
+      \sum_{{\bf k} \in \N^d} \prod_{i=1}^d (1+k_i)^2 |f_{\bf k}| =: M_f < \infty.
+  \]
+  (i) Show that there is a non-tensor truncation of this expansion
+  that leads to the error estimate  \mark{3}
+  \[
+      \| f - p_N \|_\infty \leq M_f (1+N)^{-2}.
+  \]
+   (ii) By estimating the number of retained coefficients, convert the error 
+   estimate in (i) to an estimate in terms of the cost of evaluating the 
+   approximant $p_N$. 
+   
+  {\it You may use, without proof that, if $c_0 n \log n \leq m \leq c_1 n \log n$ then 
+  for $m, n$ sufficiently large, 
+  $n \geq c_2 m /
+  \log m$ where $c_j > 0$. }
+   \mark{5}
+
+  %  {\it HINT: Consider first the case $d = 2$.}
+  \end{enumerate}
+\end{question}
+
+
+%
+%% \end{exam1comp} will automatically print END after the last question.
+%% Run LaTeX twice to get this right.
+\end{examcomp1}
+
+%%
+%% Some optional extras...
+%%
+\clearpage 
+
+{\bf Comments for external examiner: } (see also solutions) \\ The exam has a
+mixture of testing knowledge, proofs, minor variations of proofs (to test
+understanding), a few concrete examples. This is a new module, so there is no
+risk of overlap with previous exams. Except on Q1, at most 5 points on each Q
+require deeper modification of the ideas learned in the lectures.
+
+\begin{itemize}
+\item Q. 1 is meant to be easy and check the most basic knowledge and
+understanding of the material. It is almost exclusively bookwork (BW), only
+(biv)  and (cii) are (straightforward) variations of examples seen in the
+lectures. Every student who has studied seriously should be able to 
+obtain about 80--90\% of this question.
+\item Q.2: (a) is BW and tests one of the fundamental results covered in the lectures;
+(b) is BW and tests a key idea emphasized several times; (ci) is 
+an exercise; (cii) is variation of an exercise.
+\item Q.3: (a) is 1/2 BW and 1/2 a trivial extension of the same idea; 
+(bi) and (bii) are BW testing the basic results on splines; (biii) is 
+an immediate application with similar examples seen in the lectures and 
+exercises; (ci)  is an exercise; (cii) is new and requires a clear head - 
+the main point is to connect this with the concept of the Lebesgue 
+constant, then it is easy (but there are also less direct ways to prove this).
+\item Q.4: This exercise mixes knowledge about trigonometric interpolation 
+and least squares methods. (a) is standard BW; (bi) is still bookwork; 
+(bii) is a direct application of (ai) and a minimal variation of 
+what was seen in the lectures; (biii) requires them to realise that a 
+certain operation can be performed via the FFT. It requires them to make 
+a connection but is technically not difficicult.
+\item Q.5: (a) is almost verbatim bookwork; (b) is new: (bi) is an application of 
+the greedy truncation idea discussed in the lectures; (bii) 
+requires a bit of legwork, but similar calculations have been performed in 
+the lectures many times.
+\end{itemize}
+
+% \begin{itemize}
+
+% \item Q. 2: (a) (i) and (ii) is straightforward BW, (iii) tests a bit of
+% understanding and creativity, (iv) is a straightforward application;
+% (b) (i) is a straightforward application of standard techniques,
+% (ii) tests a bit of understanding and creativity.
+
+% \item Q. 3: (a) is BW; (b) is relatively straightforward application of
+% bookwork, with similar examples seen. The main step is to convert the linear
+% system into the companian matrix form, which the students have seen in the
+% lectures. The rest should be straightforward applications of learned techniques.
+
+% \item Q. 4: (a) (i) is BW, (ii) is an application of (i) which the students
+% haven't seen, but if they don't spot it they can still use the result. (iii) is
+% BW. (b) is BW, but slightly different from how it was covered in the lectures,
+% it tests whether the students have understood how to complete a square in the
+% vectorial setting. (c) is new, it tests that the students can apply the
+% technique from (b) in a setting similar to what they have seen in the lectures
+% and revisions.
+
+% \item Q. 5: (a) is a simple variation of material covered in the lectures.
+
+% (b) the modification $u = 0$ makes the problem closer to the material of the
+% lectures, but it will be non-obvious to most students since the concept
+% of controllability in the lectures suddenly becomes the concept of
+% observability, which they have seen in a different context. If the students
+% can spot this then the rest of this question should be straighforward. Even
+% without this, they will be able to get 6-8 points here.
+
+% \end{itemize}
+
+
+%% Typeset solutions can be provided and these will follow the standard layout
+
+% \begin{solution}
+
+% Test
+
+% \end{solution}
+
+% \begin{solution}
+
+% Test
+
+% \end{solution}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
